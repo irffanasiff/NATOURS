@@ -1,4 +1,5 @@
-const userRouter = express.Router(); //create a new router object. This function is used when you want to create a new router object in your program to handle requests.
+const express = require('express')
+const userRoutes = express.Router(); 
 
 const getAllUsers = (req, res) => {
   res.status(500).json({
@@ -30,7 +31,7 @@ const deleteUser = (req, res) => {
     message: 'this route is not yet defined',
   });
 };
-userRouter.route('/').get(getAllUsers).post(createUser);
-userRouter.route('/:Id').get(getUser).patch(updateUser).delete(deleteUser);
+userRoutes.route('/').get(getAllUsers).post(createUser);
+userRoutes.route('/:Id').get(getUser).patch(updateUser).delete(deleteUser);
 
 module.exports = userRoutes;

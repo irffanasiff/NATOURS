@@ -1,5 +1,5 @@
-const tourRouter = express.Router(); //create a new router object. This function is used when you want to create a new router object in your program to handle requests.
-//? router is code that runs your routes
+const express = require('express')
+const tourRoutes = express.Router(); 
 
 const getAllTours = (request, response) => {
   console.log(request.requestTime);
@@ -76,7 +76,7 @@ const deleteTour = (request, response) => {
   });
 };
 
-tourRouter.route('/').get(getAllTours).post(createTour);
-tourRouter.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
+tourRoutes.route('/').get(getAllTours).post(createTour);
+tourRoutes.route('/:id').get(getTour).patch(updateTour).delete(deleteTour);
 
 module.exports = tourRoutes;

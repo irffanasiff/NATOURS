@@ -1,7 +1,7 @@
 const express = require('Express');
 const app = express();
-const tourRouter = require('/public/routers/tourRoutes.js')
-const userRouter = require('/public/routers/userrRoutes.js')
+const tourRoutes = require('../NATOURS/public/routers/tourRoutes')
+const userRoutes = require('../NATOURS/public/routers/userRoutes')
 
 const fs = require('fs');
 const morgan = require('morgan');
@@ -21,8 +21,8 @@ app.use((req, res, next) => {
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-sample.json`)
 );
-app.use("/app/v1/tours", tourRouter)
-app.use("/app/v1/users", userRouter)
+app.use("/app/v1/tours", tourRoutes)
+app.use("/app/v1/users", userRoutes)
 
 //------------------------------ 4) START SERVER  --------------------
 const port = 8000;
